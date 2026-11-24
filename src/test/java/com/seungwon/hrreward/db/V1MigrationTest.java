@@ -1,4 +1,4 @@
-package com.seungwon.hrreward.global;
+package com.seungwon.hrreward.db;
 
 import com.seungwon.hrreward.TestcontainersConfiguration;
 import org.junit.jupiter.api.BeforeEach;
