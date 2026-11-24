@@ -16,7 +16,23 @@ public enum ErrorCode {
     FORBIDDEN(HttpStatus.FORBIDDEN, "C005", "접근 권한이 없습니다."),
     RESOURCE_NOT_FOUND(HttpStatus.NOT_FOUND, "C006", "요청한 리소스를 찾을 수 없습니다."),
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, "C007", "지원하지 않는 HTTP 메서드입니다."),
-    INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "C999", "서버 내부 오류가 발생했습니다.");
+    INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "C999", "서버 내부 오류가 발생했습니다."),
+
+    // User
+    USER_ALREADY_WITHDRAWN(HttpStatus.CONFLICT, "U001", "이미 탈퇴한 회원입니다."),
+
+    // Store
+    STORE_ALREADY_CLOSED(HttpStatus.CONFLICT, "S001", "이미 폐업 처리된 매장입니다."),
+
+    // Store member
+    INVALID_MEMBER_STATUS(HttpStatus.CONFLICT, "M001", "현재 직원 상태에서는 처리할 수 없습니다."),
+    OWNER_CANNOT_RESIGN(HttpStatus.CONFLICT, "M002", "매장 소유자는 퇴사 처리할 수 없습니다."),
+    OWNER_ROLE_NOT_CHANGEABLE(HttpStatus.CONFLICT, "M003", "소유자 역할로 변경하거나 소유자의 역할을 변경할 수 없습니다."),
+
+    // Store invitation
+    INVITATION_REVOKED(HttpStatus.CONFLICT, "I001", "폐기된 초대 코드입니다."),
+    INVITATION_EXPIRED(HttpStatus.CONFLICT, "I002", "만료된 초대 코드입니다."),
+    INVITATION_EXHAUSTED(HttpStatus.CONFLICT, "I003", "사용 횟수를 모두 소진한 초대 코드입니다.");
 
     private final HttpStatus status;
     private final String code;
