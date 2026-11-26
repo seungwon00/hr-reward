@@ -1,8 +1,15 @@
 spring:
+  config:
+    # 프로젝트 루트의 .env (Git 제외)에서 JWT_SECRET 등을 읽음. 없으면 무시
+    import: optional:file:.env[.properties]
   datasource:
     url: jdbc:mysql://localhost:${DB_PORT:3306}/${DB_NAME:hr_reward}?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: ${DB_USERNAME:hr_reward}
     password: ${DB_PASSWORD:hr_reward}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
   jpa:
     properties:
       hibernate:
