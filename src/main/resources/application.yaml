@@ -3,6 +3,9 @@ spring:
     name: hr-reward
   profiles:
     default: local
+  autoconfigure:
+    # JWT 인증만 사용하므로 기본 인메모리 사용자(생성 비밀번호 로그 출력) 비활성화
+    exclude: org.springframework.boot.security.autoconfigure.UserDetailsServiceAutoConfiguration
   jpa:
     open-in-view: false
     hibernate:
@@ -10,3 +13,9 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+
+jwt:
+  # Base64 인코딩된 HMAC 키 (디코딩 후 32바이트 이상). 기본값 없음: 미설정 시 기동 실패
+  secret: ${JWT_SECRET}
+  access-token-validity: 30m
+  refresh-token-validity: 14d

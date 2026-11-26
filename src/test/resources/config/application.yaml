@@ -1,0 +1,4 @@
+# 테스트 전용 설정. classpath:/config/application.yaml 은 main의 application.yaml 위에 덮어써진다.
+jwt:
+  # 테스트 전용 더미 키 ("hr-reward-test-only-jwt-secret-not-for-production"의 Base64). 실제 환경은 JWT_SECRET 환경변수 사용
+  secret: aHItcmV3YXJkLXRlc3Qtb25seS1qd3Qtc2VjcmV0LW5vdC1mb3ItcHJvZHVjdGlvbg==

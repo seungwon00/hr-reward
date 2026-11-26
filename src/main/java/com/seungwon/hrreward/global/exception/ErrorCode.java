@@ -20,6 +20,12 @@ public enum ErrorCode {
 
     // User
     USER_ALREADY_WITHDRAWN(HttpStatus.CONFLICT, "U001", "이미 탈퇴한 회원입니다."),
+    EMAIL_DUPLICATED(HttpStatus.CONFLICT, "U002", "이미 사용 중인 이메일입니다."),
+
+    // Auth
+    INVALID_CREDENTIALS(HttpStatus.UNAUTHORIZED, "A001", "이메일 또는 비밀번호가 올바르지 않습니다."),
+    INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "A002", "유효하지 않은 토큰입니다."),
+    EXPIRED_TOKEN(HttpStatus.UNAUTHORIZED, "A003", "만료된 토큰입니다."),
 
     // Store
     STORE_ALREADY_CLOSED(HttpStatus.CONFLICT, "S001", "이미 폐업 처리된 매장입니다."),
